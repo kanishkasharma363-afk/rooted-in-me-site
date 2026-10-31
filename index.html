@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooted in Me | My Own Universe</title>
+<meta name="description" content="A quiet space for self-discovery, healing and becoming my own home.">
+
+<style>
+:root {
+  --bg: #090b12;
+  --text: #eee9e2;
+  --muted: #a6a5b0;
+  --accent: #c6b7d9;
+  --line: rgba(225,215,240,.15);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+#sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 8px 2px rgba(210,195,255,.45);
+  animation: twinkle var(--duration) ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  from { opacity: .15; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1.5); }
+}
+.glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(100,85,145,.10);
+  filter: blur(100px);
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+main, header, footer { position: relative; z-index: 1; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  letter-spacing: 4px;
+  font-size: 12px;
+  color: var(--accent);
+}
+nav { display: flex; gap: 25px; flex-wrap: wrap; }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font: 11px Arial, sans-serif;
+  letter-spacing: 1px;
+}
+nav a:hover { color: white; }
+.hero {
+  min-height: 83vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px;
+}
+.eyebrow {
+  color: var(--accent);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(48px, 9vw, 100px);
+  font-weight: normal;
+  letter-spacing: 4px;
+  margin: 25px 0 15px;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: 17px;
+  font-style: italic;
+}
+.hero-line {
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  margin: 35px auto;
+}
+.hero-thought {
+  color: #d9d0e5;
+  font-size: clamp(17px, 3vw, 23px);
+  max-width: 600px;
+  line-height: 1.8;
+  min-height: 85px;
+  transition: opacity 1s ease;
+}
+.scroll {
+  margin-top: 55px;
+  color: var(--muted);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 3px;
+}
+section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 85px 25px;
+}
+.section-label {
+  color: var(--accent);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: normal;
+  margin: 15px 0;
+}
+.intro {
+  color: var(--muted);
+  line-height: 2;
+  max-width: 670px;
+  font-size: 16px;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 40px;
+}
+.card {
+  padding: 30px;
+  min-height: 175px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.025);
+  transition: .35s ease;
+}
+.card:hover {
+  border-color: rgba(198,183,217,.65);
+  transform: translateY(-5px);
+  background: rgba(198,183,217,.06);
+}
+.card .number {
+  color: var(--accent);
+  font: 10px Arial, sans-serif;
+  letter-spacing: 2px;
+}
+.card h3 {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 18px 0 10px;
+}
+.card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+.manifesto {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 90px 25px;
+}
+.manifesto p {
+  font-size: clamp(20px, 4vw, 32px);
+  line-height: 1.8;
+  font-style: italic;
+  color: #ded5e9;
+  max-width: 730px;
+  margin: 25px auto;
+}
+footer {
+  text-align: center;
+  padding: 55px 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 2;
+}
+footer span { color: var(--accent); }
+
+@media(max-width:650px) {
+  header { flex-direction: column; gap: 20px; }
+  nav { justify-content: center; gap: 15px; }
+  .cards { grid-template-columns: 1fr; }
+  section { padding: 65px 22px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="sky"></div>
+<div class="glow"></div>
+
+<header>
+  <div class="logo">ROOTED IN ME ✧</div>
+  <nav>
+    <a href="#about">ABOUT</a>
+    <a href="#journey">MY JOURNEY</a>
+    <a href="#promise">MY PROMISE</a>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="eyebrow">A JOURNEY BACK TO MYSELF</div>
+    <h1>ROOTED IN ME</h1>
+    <div class="subtitle">Learning to become my own home.</div>
+    <div class="hero-line"></div>
+    <div class="hero-thought" id="thought">
+      I am allowed to build a life that belongs entirely to me.
+    </div>
+    <div class="scroll">SCROLL TO EXPLORE ↓</div>
+  </div>
+
+  <section id="about">
+    <div class="section-label">01 / THE BEGINNING</div>
+    <h2>A little space of my own.</h2>
+    <p class="intro">
+      This is a space for understanding who I am beyond my relationships,
+      expectations and the opinions of others.
+      A place to explore my past, embrace my present and build a future
+      that reflects my own values.
+      I am not here to become someone else. I am here to know myself.
+    </p>
+  </section>
+
+  <section id="journey">
+    <div class="section-label">02 / MY JOURNEY</div>
+    <h2>Things I am growing through.</h2>
+    <p class="intro">
+      Every part of me deserves understanding. Every stage of my growth
+      deserves patience.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="number">01 — THE PAST</div>
+        <h3>Childhood Healing</h3>
+        <p>Understanding my younger self, emotional needs and the
+        experiences that shaped me.</p>
+      </div>
+      <div class="card">
+        <div class="number">02 — THE PRESENT</div>
+        <h3>Self Love</h3>
+        <p>Learning to respect myself, appreciate my existence and
+        become someone I can rely on.</p>
+      </div>
+      <div class="card">
+        <div class="number">03 — INNER STRENGTH</div>
+        <h3>Emotional Freedom</h3>
+        <p>Loving without losing myself. Connecting without becoming
+        dependent on another person's presence.</p>
+      </div>
+      <div class="card">
+        <div class="number">04 — THE FUTURE</div>
+        <h3>Becoming Me</h3>
+        <p>Building my own dreams, ambitions, values, experiences
+        and meaningful life.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="manifesto" id="promise">
+    <div class="section-label">03 / A PROMISE TO MYSELF</div>
+    <p>
+      I can love someone without losing myself.<br>
+      I can be alone without feeling incomplete.<br>
+      I can receive love without depending on it.<br>
+      I can create a life I genuinely love.
+    </p>
+    <div class="hero-line"></div>
+    <div class="subtitle">I belong to myself.</div>
+  </div>
+</main>
+
+<footer>
+  <span>✧ ROOTED IN ME ✧</span><br>
+  A work in progress. A life in progress.<br>
+  Made with intention, for myself.
+</footer>
+
+<script>
+const sky = document.getElementById("sky");
+
+// Create a field of softly twinkling stars.
+for (let i = 0; i < 150; i++) {
+  const star = document.createElement("div");
+  star.className = "star";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.setProperty("--duration", (2 + Math.random() * 5) + "s");
+  star.style.animationDelay = (Math.random() * 5) + "s";
+  sky.appendChild(star);
+}
+
+// Thoughts that gently change on the homepage.
+const thoughts = [
+  "I am allowed to build a life that belongs entirely to me.",
+  "My worth does not depend on who chooses to stay.",
+  "I deserve the same kindness I give to others.",
+  "My past is a part of me, not the definition of me.",
+  "I can be independent and still be open to love.",
+  "I will not abandon myself to keep someone else.",
+  "I am becoming someone I can rely on.",
+  "There is a whole life waiting for me to experience."
+];
+
+let index = 0;
+const thought = document.getElementById("thought");
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  setInterval(() => {
+    thought.style.opacity = 0;
+    setTimeout(() => {
+      index = (index + 1) % thoughts.length;
+      thought.textContent = thoughts[index];
+      thought.style.opacity = 1;
+    }, 1000);
+  }, 4500);
+}
+</script>
+</body>
+</html>
