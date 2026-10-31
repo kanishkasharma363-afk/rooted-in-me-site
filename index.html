@@ -4,350 +4,751 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rooted in Me | My Own Universe</title>
-<meta name="description" content="A quiet space for self-discovery, healing and becoming my own home.">
+<meta name="theme-color" content="#080a14">
+<title>Dear Kanishka — Rooted in Me</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Dancing+Script:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #090b12;
-  --text: #eee9e2;
-  --muted: #a6a5b0;
-  --accent: #c6b7d9;
-  --line: rgba(225,215,240,.15);
+  --night: #080a14;
+  --lavender: #c8b8e8;
+  --silver: #e5e0ed;
+  --muted: #a6a1b5;
+  --line: rgba(220,210,240,.15);
 }
+
 * { box-sizing: border-box; }
+
 html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Georgia, "Times New Roman", serif;
+  background: var(--night);
+  color: var(--silver);
+  font-family: 'Cormorant Garamond', serif;
   overflow-x: hidden;
 }
-#sky {
+
+body::before {
+  content: "";
   position: fixed;
   inset: 0;
+  pointer-events: none;
   z-index: 0;
+  background:
+    radial-gradient(ellipse at 50% 15%, rgba(105,83,155,.18), transparent 48%),
+    radial-gradient(ellipse at 10% 65%, rgba(75,83,135,.09), transparent 45%),
+    radial-gradient(ellipse at 90% 85%, rgba(110,76,145,.09), transparent 40%);
+}
+
+#stars, #shooting-stars {
+  position: fixed;
+  inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
 }
+
 .star {
   position: absolute;
   width: 2px;
   height: 2px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 8px 2px rgba(210,195,255,.45);
-  animation: twinkle var(--duration) ease-in-out infinite alternate;
+  background: white;
+  box-shadow: 0 0 7px 1px rgba(220,215,255,.7);
+  animation: twinkle var(--duration) infinite alternate ease-in-out;
 }
+
 @keyframes twinkle {
   from { opacity: .15; transform: scale(.7); }
-  to { opacity: 1; transform: scale(1.5); }
+  to { opacity: 1; transform: scale(1.6); }
 }
-.glow {
-  position: fixed;
-  width: 420px;
-  height: 420px;
-  border-radius: 50%;
-  background: rgba(100,85,145,.10);
-  filter: blur(100px);
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  pointer-events: none;
+
+.shooting {
+  position: absolute;
+  height: 1px;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  opacity: 0;
+  transform: rotate(-35deg);
+  animation: shoot 4s linear infinite;
 }
-main, header, footer { position: relative; z-index: 1; }
+
+@keyframes shoot {
+  0% { opacity: 0; transform: translate(0,0) rotate(-35deg); }
+  8% { opacity: .8; }
+  25% { opacity: 0; transform: translate(-250px,150px) rotate(-35deg); }
+  100% { opacity: 0; }
+}
+
+main, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+a { color: inherit; text-decoration: none; }
+
 header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 27px 7%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 25px 8%;
+  justify-content: space-between;
   border-bottom: 1px solid var(--line);
 }
+
 .logo {
+  font-family: 'DM Sans', sans-serif;
   letter-spacing: 4px;
-  font-size: 12px;
-  color: var(--accent);
+  font-size: 10px;
+  color: var(--lavender);
 }
-nav { display: flex; gap: 25px; flex-wrap: wrap; }
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font: 11px Arial, sans-serif;
+
+.nav {
+  display: flex;
+  gap: 25px;
+  font: 10px 'DM Sans', sans-serif;
   letter-spacing: 1px;
+  color: var(--muted);
 }
-nav a:hover { color: white; }
+
+.nav a:hover { color: white; }
+
 .hero {
-  min-height: 83vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 80px 20px;
+  padding: 120px 20px 65px;
 }
+
 .eyebrow {
-  color: var(--accent);
-  font: 10px Arial, sans-serif;
+  color: var(--lavender);
+  font: 10px 'DM Sans', sans-serif;
   letter-spacing: 5px;
   text-transform: uppercase;
 }
-h1 {
-  font-size: clamp(48px, 9vw, 100px);
-  font-weight: normal;
-  letter-spacing: 4px;
-  margin: 25px 0 15px;
+
+.hero h1 {
+  font-size: clamp(55px, 11vw, 112px);
+  font-weight: 300;
+  margin: 25px 0 0;
+  line-height: 1.05;
+  letter-spacing: -2px;
 }
-.subtitle {
+
+.handwriting {
+  font-family: 'Dancing Script', cursive;
+  color: var(--lavender);
+  font-size: clamp(29px, 5vw, 43px);
+  margin-top: 20px;
+}
+
+.hero-description {
+  max-width: 480px;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.8;
+  margin-top: 25px;
+}
+
+.ornament {
+  color: var(--lavender);
+  font-size: 20px;
+  margin: 25px 0;
+  letter-spacing: 12px;
+}
+
+.enter {
+  margin-top: 20px;
+  padding: 14px 30px;
+  border: 1px solid rgba(200,184,232,.45);
+  border-radius: 40px;
+  color: var(--silver);
+  font: 10px 'DM Sans', sans-serif;
+  letter-spacing: 2px;
+  background: rgba(200,184,232,.04);
+  cursor: pointer;
+  transition: .4s;
+}
+
+.enter:hover {
+  background: rgba(200,184,232,.15);
+  box-shadow: 0 0 30px rgba(170,140,220,.2);
+}
+
+.scroll-note {
+  position: absolute;
+  bottom: 30px;
+  font: 9px 'DM Sans', sans-serif;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+section {
+  max-width: 900px;
+  margin: auto;
+  padding: 115px 25px;
+}
+
+.section-number {
+  font: 10px 'DM Sans', sans-serif;
+  letter-spacing: 4px;
+  color: var(--lavender);
+}
+
+h2 {
+  font-size: clamp(35px, 6vw, 58px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+.section-text {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.95;
+  max-width: 680px;
+}
+
+.script {
+  font-family: 'Dancing Script', cursive;
+  color: var(--lavender);
+  font-size: 32px;
+}
+
+.divider {
+  width: 65px;
+  height: 1px;
+  background: var(--lavender);
+  margin: 35px 0;
+  opacity: .6;
+}
+
+.center { text-align: center; }
+.center .divider { margin: 35px auto; }
+.center .section-text { margin-left: auto; margin-right: auto; }
+
+.letter {
+  margin-top: 45px;
+  padding: 45px;
+  border: 1px solid var(--line);
+  background: linear-gradient(140deg, rgba(190,170,230,.055), rgba(255,255,255,.012));
+  position: relative;
+}
+
+.letter::before {
+  content: "✧";
+  position: absolute;
+  top: 17px;
+  right: 23px;
+  color: var(--lavender);
+  font-size: 20px;
+}
+
+.letter p {
+  color: #d4cede;
+  font-size: 20px;
+  line-height: 1.9;
+}
+
+.letter .signature {
+  font-family: 'Dancing Script', cursive;
+  font-size: 30px;
+  color: var(--lavender);
+  margin-top: 30px;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
+  margin-top: 45px;
+}
+
+.memory {
+  min-height: 195px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.018);
+  cursor: pointer;
+  transition: .4s;
+}
+
+.memory:hover {
+  border-color: rgba(200,184,232,.55);
+  transform: translateY(-5px);
+  background: rgba(190,170,230,.055);
+}
+
+.memory .symbol {
+  color: var(--lavender);
+  font-size: 23px;
+}
+
+.memory h3 {
+  font-size: 25px;
+  font-weight: 400;
+  margin: 15px 0 8px;
+}
+
+.memory p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.reveal {
+  display: none;
+  border-top: 1px solid var(--line);
+  margin-top: 15px;
+  padding-top: 15px;
+  color: var(--lavender) !important;
   font-style: italic;
 }
-.hero-line {
-  width: 60px;
-  height: 1px;
-  background: var(--accent);
-  margin: 35px auto;
-}
-.hero-thought {
-  color: #d9d0e5;
-  font-size: clamp(17px, 3vw, 23px);
-  max-width: 600px;
-  line-height: 1.8;
-  min-height: 85px;
-  transition: opacity 1s ease;
-}
-.scroll {
-  margin-top: 55px;
-  color: var(--muted);
-  font: 10px Arial, sans-serif;
-  letter-spacing: 3px;
-}
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 85px 25px;
-}
-.section-label {
-  color: var(--accent);
-  font: 10px Arial, sans-serif;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-}
-h2 {
-  font-size: clamp(30px, 5vw, 46px);
-  font-weight: normal;
-  margin: 15px 0;
-}
-.intro {
-  color: var(--muted);
-  line-height: 2;
-  max-width: 670px;
-  font-size: 16px;
-}
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-top: 40px;
-}
-.card {
-  padding: 30px;
-  min-height: 175px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,.025);
-  transition: .35s ease;
-}
-.card:hover {
-  border-color: rgba(198,183,217,.65);
-  transform: translateY(-5px);
-  background: rgba(198,183,217,.06);
-}
-.card .number {
-  color: var(--accent);
-  font: 10px Arial, sans-serif;
-  letter-spacing: 2px;
-}
-.card h3 {
-  font-size: 24px;
-  font-weight: normal;
-  margin: 18px 0 10px;
-}
-.card p {
-  color: var(--muted);
-  line-height: 1.7;
-  font-size: 14px;
-}
-.manifesto {
-  text-align: center;
+
+.memory.open .reveal { display: block; }
+
+.thought-box {
+  padding: 65px 25px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 90px 25px;
+  text-align: center;
+  background: rgba(160,140,200,.025);
 }
-.manifesto p {
-  font-size: clamp(20px, 4vw, 32px);
-  line-height: 1.8;
+
+.thought-box .thought {
+  max-width: 650px;
+  min-height: 95px;
+  margin: 30px auto;
+  font-size: clamp(25px,4vw,38px);
   font-style: italic;
-  color: #ded5e9;
-  max-width: 730px;
-  margin: 25px auto;
+  line-height: 1.5;
+  color: #e4ddec;
+  transition: opacity .7s;
 }
+
+.thought-controls {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.thought-controls button {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--lavender);
+  padding: 11px 20px;
+  cursor: pointer;
+  font: 10px 'DM Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+.thought-controls button:hover {
+  background: rgba(200,184,232,.1);
+}
+
+.constellation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 45px 0;
+  color: var(--lavender);
+  font-size: 24px;
+}
+
+.constellation span {
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.promise {
+  text-align: center;
+  padding: 125px 25px;
+  border-top: 1px solid var(--line);
+}
+
+.promise h2 {
+  max-width: 700px;
+  margin: 25px auto;
+  font-style: italic;
+}
+
+.promise .script { margin-top: 35px; }
+
 footer {
   text-align: center;
-  padding: 55px 20px;
+  padding: 35px 20px 55px;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 2;
+  font: 10px 'DM Sans', sans-serif;
+  letter-spacing: 2px;
 }
-footer span { color: var(--accent); }
+
+footer .script {
+  font-size: 23px;
+  letter-spacing: 0;
+  margin-bottom: 15px;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media(max-width:650px) {
-  header { flex-direction: column; gap: 20px; }
-  nav { justify-content: center; gap: 15px; }
-  .cards { grid-template-columns: 1fr; }
-  section { padding: 65px 22px; }
+  header { padding: 20px; flex-direction: column; gap: 17px; }
+  .nav { gap: 14px; font-size: 9px; }
+  .hero h1 { font-size: 60px; }
+  .memory-grid { grid-template-columns: 1fr; }
+  .letter { padding: 30px 24px; }
+  section { padding: 85px 23px; }
 }
+
 @media(prefers-reduced-motion:reduce) {
   *, *::before, *::after {
     animation-duration: .01ms !important;
-    scroll-behavior: auto !important;
     transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 </style>
 </head>
 
 <body>
-<div id="sky"></div>
-<div class="glow"></div>
+
+<div id="stars"></div>
+<div id="shooting-stars"></div>
 
 <header>
-  <div class="logo">ROOTED IN ME ✧</div>
-  <nav>
-    <a href="#about">ABOUT</a>
-    <a href="#journey">MY JOURNEY</a>
+  <div class="logo">✧ ROOTED IN ME</div>
+  <nav class="nav">
+    <a href="#letter">THE LETTER</a>
+    <a href="#little-me">LITTLE ME</a>
+    <a href="#becoming">BECOMING</a>
     <a href="#promise">MY PROMISE</a>
   </nav>
 </header>
 
 <main>
-  <div class="hero">
-    <div class="eyebrow">A JOURNEY BACK TO MYSELF</div>
-    <h1>ROOTED IN ME</h1>
-    <div class="subtitle">Learning to become my own home.</div>
-    <div class="hero-line"></div>
-    <div class="hero-thought" id="thought">
-      I am allowed to build a life that belongs entirely to me.
-    </div>
-    <div class="scroll">SCROLL TO EXPLORE ↓</div>
-  </div>
 
-  <section id="about">
-    <div class="section-label">01 / THE BEGINNING</div>
-    <h2>A little space of my own.</h2>
-    <p class="intro">
-      This is a space for understanding who I am beyond my relationships,
-      expectations and the opinions of others.
-      A place to explore my past, embrace my present and build a future
-      that reflects my own values.
-      I am not here to become someone else. I am here to know myself.
-    </p>
-  </section>
+<!-- OPENING -->
+<div class="hero">
+  <div class="eyebrow">A LITTLE UNIVERSE OF MY OWN</div>
+  <h1>Dear Kanishka,</h1>
+  <div class="handwriting">this space is yours.</div>
+  <div class="ornament">✧ · · · ✧</div>
+  <p class="hero-description">
+    A letter to the girl I once was,<br>
+    the woman I am today,<br>
+    and the person I am becoming.
+  </p>
+  <a class="enter" href="#letter">ENTER YOUR UNIVERSE &nbsp; ↓</a>
+  <div class="scroll-note">TAKE YOUR TIME. THERE IS NO RUSH.</div>
+</div>
 
-  <section id="journey">
-    <div class="section-label">02 / MY JOURNEY</div>
-    <h2>Things I am growing through.</h2>
-    <p class="intro">
-      Every part of me deserves understanding. Every stage of my growth
-      deserves patience.
-    </p>
+<!-- LETTER -->
+<section id="letter" class="fade">
+  <div class="section-number">01 — THE LETTER</div>
+  <h2>Dear Kanishka,</h2>
+  <div class="divider"></div>
 
-    <div class="cards">
-      <div class="card">
-        <div class="number">01 — THE PAST</div>
-        <h3>Childhood Healing</h3>
-        <p>Understanding my younger self, emotional needs and the
-        experiences that shaped me.</p>
-      </div>
-      <div class="card">
-        <div class="number">02 — THE PRESENT</div>
-        <h3>Self Love</h3>
-        <p>Learning to respect myself, appreciate my existence and
-        become someone I can rely on.</p>
-      </div>
-      <div class="card">
-        <div class="number">03 — INNER STRENGTH</div>
-        <h3>Emotional Freedom</h3>
-        <p>Loving without losing myself. Connecting without becoming
-        dependent on another person's presence.</p>
-      </div>
-      <div class="card">
-        <div class="number">04 — THE FUTURE</div>
-        <h3>Becoming Me</h3>
-        <p>Building my own dreams, ambitions, values, experiences
-        and meaningful life.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="manifesto" id="promise">
-    <div class="section-label">03 / A PROMISE TO MYSELF</div>
+  <div class="letter">
     <p>
-      I can love someone without losing myself.<br>
-      I can be alone without feeling incomplete.<br>
-      I can receive love without depending on it.<br>
-      I can create a life I genuinely love.
+      I hope you never forget that there is a whole person
+      inside you who deserves your attention, patience and love.
     </p>
-    <div class="hero-line"></div>
-    <div class="subtitle">I belong to myself.</div>
+    <p>
+      I know you have spent time trying to understand other
+      people, their emotions, their decisions and their expectations.
+      But have you spent enough time understanding yourself?
+    </p>
+    <p>
+      I want you to discover who you are when nobody is watching,
+      when nobody is appreciating you, when nobody is choosing you.
+    </p>
+    <p>
+      I want you to build a life that excites you. A life filled
+      with knowledge, ambition, friendships, experiences, freedom
+      and meaningful work.
+    </p>
+    <p>
+      You can love people deeply. You can welcome companionship.
+      But never make another person's presence the condition
+      for your own happiness.
+    </p>
+    <p>
+      This time, I want you to choose yourself.
+      Not out of anger, not out of disappointment,
+      but out of genuine respect for your own existence.
+    </p>
+    <div class="signature">With love, from you. ♡</div>
   </div>
+</section>
+
+<!-- CHILDHOOD -->
+<section id="little-me" class="fade">
+  <div class="section-number">02 — THE LITTLE GIRL</div>
+  <h2>To the little girl within me.</h2>
+  <p class="section-text">
+    There was a little girl who wanted affection, attention,
+    tenderness and the feeling of being special.
+    I don't want to dismiss her needs anymore.
+  </p>
+  <p class="section-text">
+    I want to understand her, listen to her and give her
+    the patience she deserves.
+  </p>
+
+  <div class="memory-grid">
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">✧</div>
+      <h3>She wanted attention.</h3>
+      <p>She wanted to be noticed without having to compete for it.</p>
+      <p class="reveal">
+        Today, I will learn to notice my own needs and express them.
+      </p>
+    </div>
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">♡</div>
+      <h3>She wanted tenderness.</h3>
+      <p>She wanted to be pampered, cared for and understood.</p>
+      <p class="reveal">
+        Today, I can offer myself tenderness without feeling guilty.
+      </p>
+    </div>
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">☾</div>
+      <h3>She wanted to be heard.</h3>
+      <p>She wanted her emotions to be acknowledged.</p>
+      <p class="reveal">
+        Today, I don't have to dismiss my feelings just because
+        someone else cannot understand them.
+      </p>
+    </div>
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">✦</div>
+      <h3>She wanted to feel important.</h3>
+      <p>She wanted to know that she mattered.</p>
+      <p class="reveal">
+        Today, my importance is not something I need to earn.
+      </p>
+    </div>
+
+  </div>
+  <p class="script" style="margin-top:45px;">
+    I am not ashamed of the little girl I was.
+  </p>
+</section>
+
+<!-- SELF DISCOVERY -->
+<section id="becoming" class="fade">
+  <div class="section-number">03 — THE WOMAN I AM BECOMING</div>
+  <h2>I have a life to build.</h2>
+  <p class="section-text">
+    I am more than my relationships.
+    I am a mind that wants to learn, a person with ambitions,
+    values, curiosity and an entire future to explore.
+  </p>
+  <div class="divider"></div>
+
+  <div class="memory-grid">
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">⚖</div>
+      <h3>My intellectual world</h3>
+      <p>Knowledge, law, research, questions and independent thinking.</p>
+      <p class="reveal">I will never stop learning and questioning.</p>
+    </div>
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">✦</div>
+      <h3>My ambitions</h3>
+      <p>My professional dreams, challenges and achievements.</p>
+      <p class="reveal">I have goals that belong entirely to me.</p>
+    </div>
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">∞</div>
+      <h3>My freedom</h3>
+      <p>Making decisions, exploring the world and experiencing life.</p>
+      <p class="reveal">I am allowed to choose the shape of my own life.</p>
+    </div>
+
+    <div class="memory" onclick="toggleCard(this)">
+      <div class="symbol">☼</div>
+      <h3>My inner strength</h3>
+      <p>Self-respect, courage, emotional maturity and resilience.</p>
+      <p class="reveal">I can be gentle without surrendering my boundaries.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- THOUGHTS -->
+<div class="thought-box fade">
+  <div class="section-number">04 — WHEN YOU NEED A REMINDER</div>
+  <h2>Read this slowly.</h2>
+  <div class="thought" id="thought">
+    You do not have to abandon yourself to be loved.
+  </div>
+  <div class="thought-controls">
+    <button onclick="changeThought(-1)">← PREVIOUS</button>
+    <button onclick="changeThought(1)">ANOTHER THOUGHT →</button>
+  </div>
+  <p style="color:var(--muted);font-size:13px;margin-top:30px;">
+    A small reminder, whenever you need one.
+  </p>
+</div>
+
+<!-- PERSONAL PROMISE -->
+<section class="fade center">
+  <div class="section-number">05 — MY NON-NEGOTIABLES</div>
+  <h2>Things I never want to forget.</h2>
+  <div class="divider"></div>
+  <p class="section-text">
+    I will not make someone else's opinion the final authority
+    over my decisions.
+  </p>
+  <p class="section-text">
+    I will not confuse attention with love, or dependence with connection.
+  </p>
+  <p class="section-text">
+    I will allow myself to receive love without surrendering my identity.
+  </p>
+  <p class="section-text">
+    I will take responsibility for my choices and learn from my mistakes.
+  </p>
+  <p class="section-text">
+    I will build a life that I find meaningful, even when nobody is watching.
+  </p>
+  <div class="constellation">
+    ✧ <span>GROW</span> · ✦ <span>LEARN</span> · ☾ <span>LIVE</span> · ✧
+  </div>
+</section>
+
+<!-- ENDING -->
+<div class="promise fade" id="promise">
+  <div class="section-number">06 — A PROMISE</div>
+  <h2>
+    One day, I want to look at my life and know that I never gave up on myself.
+  </h2>
+  <div class="divider"></div>
+  <p class="section-text" style="margin:auto;">
+    I don't have to have everything figured out today.
+    I just have to keep showing up for the person I am becoming.
+  </p>
+  <div class="script">I am my own home. ♡</div>
+  <div class="ornament">✧ · · · ✧</div>
+  <p style="font-size:14px;color:var(--muted);">
+    Dear Kanishka, keep growing.
+  </p>
+</div>
+
 </main>
 
 <footer>
-  <span>✧ ROOTED IN ME ✧</span><br>
-  A work in progress. A life in progress.<br>
-  Made with intention, for myself.
+  <div class="script">Rooted in Me</div>
+  A PERSONAL UNIVERSE · MADE WITH LOVE FOR MYSELF
+  <br><br>
+  ✧ 2026 ✧
 </footer>
 
 <script>
-const sky = document.getElementById("sky");
+// Starry night sky
+const sky = document.getElementById('stars');
 
-// Create a field of softly twinkling stars.
-for (let i = 0; i < 150; i++) {
-  const star = document.createElement("div");
-  star.className = "star";
-  star.style.left = Math.random() * 100 + "%";
-  star.style.top = Math.random() * 100 + "%";
-  star.style.setProperty("--duration", (2 + Math.random() * 5) + "s");
-  star.style.animationDelay = (Math.random() * 5) + "s";
+for (let i = 0; i < 180; i++) {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.setProperty('--duration', (2 + Math.random()*5) + 's');
+  star.style.animationDelay = Math.random()*5 + 's';
+  if (Math.random() > .8) {
+    star.style.width = '3px';
+    star.style.height = '3px';
+  }
   sky.appendChild(star);
 }
 
-// Thoughts that gently change on the homepage.
+// Shooting stars
+const shooting = document.getElementById('shooting-stars');
+
+for (let i = 0; i < 3; i++) {
+  const s = document.createElement('div');
+  s.className = 'shooting';
+  s.style.top = (10 + Math.random()*55) + '%';
+  s.style.left = (45 + Math.random()*50) + '%';
+  s.style.animationDelay = (i*6 + Math.random()*5) + 's';
+  shooting.appendChild(s);
+}
+
+// Reveal sections on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {threshold: 0.12});
+
+document.querySelectorAll('.fade').forEach(el => observer.observe(el));
+
+// Expandable memory cards
+function toggleCard(card) {
+  card.classList.toggle('open');
+}
+
+// Rotating thoughts
 const thoughts = [
-  "I am allowed to build a life that belongs entirely to me.",
-  "My worth does not depend on who chooses to stay.",
-  "I deserve the same kindness I give to others.",
-  "My past is a part of me, not the definition of me.",
-  "I can be independent and still be open to love.",
-  "I will not abandon myself to keep someone else.",
-  "I am becoming someone I can rely on.",
-  "There is a whole life waiting for me to experience."
+  "You do not have to abandon yourself to be loved.",
+  "Your worth does not decrease when someone's attention does.",
+  "You are allowed to take up space in your own life.",
+  "You can miss someone and still choose yourself.",
+  "Your childhood deserves understanding, not judgement.",
+  "You are allowed to change your mind and grow.",
+  "You do not need permission to build your own future.",
+  "Being independent does not mean refusing affection.",
+  "Your dreams deserve the same attention you give to others.",
+  "You are becoming someone you can depend on.",
+  "You are allowed to be a beginner at something new.",
+  "Your life is bigger than one chapter of it."
 ];
 
-let index = 0;
-const thought = document.getElementById("thought");
+let current = 0;
+const thought = document.getElementById('thought');
 
-if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  setInterval(() => {
-    thought.style.opacity = 0;
-    setTimeout(() => {
-      index = (index + 1) % thoughts.length;
-      thought.textContent = thoughts[index];
-      thought.style.opacity = 1;
-    }, 1000);
-  }, 4500);
+function changeThought(direction) {
+  thought.style.opacity = 0;
+  setTimeout(() => {
+    current = (current + direction + thoughts.length) % thoughts.length;
+    thought.textContent = thoughts[current];
+    thought.style.opacity = 1;
+  }, 350);
 }
 </script>
+
 </body>
 </html>
